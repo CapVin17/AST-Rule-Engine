@@ -10,14 +10,14 @@ function App() {
   const [response,setResponse] = useState(null);
 
   const handleSingleRuleSubmit = async (rule) => {
-    const res = await axios.post("http://localhost:3000/api/rule", { rule });
+    const res = await axios.post("https://ast-rule-engine.onrender.com/api/rule", { rule });
     setResponse(res.data);
   };
 
   const handleMultipleRulesSubmit = async (rules) => {
     try {
       console.log("Rules sent to backend: ", rules);
-      const res = await axios.post("http://localhost:3000/api/rules", { rules });
+      const res = await axios.post("https://ast-rule-engine.onrender.com/api/rules", { rules });
       console.log("Response from backend : ", res.data);
       setResponse(res.data);
     } catch (error) {
@@ -27,7 +27,7 @@ function App() {
   };
 
   const handleEvaluateSubmit = async (data) => {
-    const res = await axios.post('http://localhost:3000/api/evaluate', data);
+    const res = await axios.post('https://ast-rule-engine.onrender.com/api/evaluate', data);
     setResponse(res.data);
   };
 
